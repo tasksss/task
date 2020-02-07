@@ -54,7 +54,7 @@ class GPUStat(object):
     def print_to(self, fp,
                  with_colors=True,  # deprecated arg
                  #show_cmd=False,
-                 show_full_cmd=False,
+                 #show_full_cmd=False,
                  show_user=False,
                  show_pid=False,
                  show_power=None,
@@ -172,9 +172,9 @@ class GPUStat(object):
         else:
             for p in processes:
                 reps += ' ' + process_repr(p)
-                if show_full_cmd:
-                    full_processes.append('\n' + full_process_info(p))
-        if show_full_cmd and full_processes:
+                # if show_full_cmd:
+                #     full_processes.append('\n' + full_process_info(p))
+        if full_processes: # show_full_cmd and
             full_processes[-1] = full_processes[-1].replace('├', '└', 1)
             reps += ''.join(full_processes)
         fp.write(reps)
@@ -532,12 +532,12 @@ def main(*argv):
     parser.add_argument('-a', '--show-all', action='store_true',
                         help='Display all gpu properties above')
 
-    parser.add_argument('-c', '--show-cmd', action='store_true',
-                        help='Display cmd name of running process')
-    parser.add_argument(
-        '-f', '--show-full-cmd', action='store_true',
-        help='Display full command and cpu stats of running process'
-    )
+    # parser.add_argument('-c', '--show-cmd', action='store_true',
+    #                     help='Display cmd name of running process')
+    # parser.add_argument(
+    #     '-f', '--show-full-cmd', action='store_true',
+    #     help='Display full command and cpu stats of running process'
+    # )
     parser.add_argument('-u', '--show-user', action='store_true',
                         help='Display username of running process')
     parser.add_argument('-p', '--show-pid', action='store_true',
