@@ -571,7 +571,7 @@ def main(*argv):
     )
     args = parser.parse_args(argv[1:])
     if args.show_all:
-        args.show_cmd = True
+        #args.show_cmd = True
         args.show_user = True
         args.show_pid = True
         #args.show_fan_speed = True
