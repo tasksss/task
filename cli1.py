@@ -25,7 +25,7 @@ import psutil
 import pynvml as N
 from blessings import Terminal
 
-import gpustat.util as util
+#import gpustat.util as util
 
 NOT_SUPPORTED = 'Not Supported'
 MB = 1024 * 1024
@@ -156,12 +156,12 @@ class GPUStat(object):
             #         _repr(p['cpu_percent'], '--'),
             #         util.bytes2human(_repr(p['cpu_memory_usage'], 0)), **colors
             #     )
-            full_command_pretty = util.prettify_commandline(
-                p['full_command'], colors['C1'], colors['CCmd'])
-            r += "{C0}: {CCmd}{}{C0}".format(
-                _repr(full_command_pretty, '?'),
-                **colors
-            )
+            # full_command_pretty = util.prettify_commandline(
+            #     p['full_command'], colors['C1'], colors['CCmd'])
+            # r += "{C0}: {CCmd}{}{C0}".format(
+            #     _repr(full_command_pretty, '?'),
+            #     **colors
+            # )
             return r
 
         processes = self.entry['processes']
