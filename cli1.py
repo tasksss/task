@@ -53,7 +53,7 @@ class GPUStat(object):
 
     def print_to(self, fp,
                  with_colors=True,  # deprecated arg
-                 show_cmd=False,
+                 #show_cmd=False,
                  show_full_cmd=False,
                  show_user=False,
                  show_pid=False,
@@ -130,16 +130,16 @@ class GPUStat(object):
 
         def process_repr(p):
             r = ''
-            if not show_cmd or show_user:
+            if not show_user: #show_cmd or
                 r += "{CUser}{}{C0}".format(
                     _repr(p['username'], '--'), **colors
                 )
-            if show_cmd:
-                if r:
-                    r += ':'
-                r += "{C1}{}{C0}".format(
-                    _repr(p.get('command', p['pid']), '--'), **colors
-                )
+            # if show_cmd:
+            #     if r:
+            #         r += ':'
+            #     r += "{C1}{}{C0}".format(
+            #         _repr(p.get('command', p['pid']), '--'), **colors
+            #     )
 
             if show_pid:
                 r += ("/%s" % _repr(p['pid'], '--'))
