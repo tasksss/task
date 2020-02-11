@@ -130,7 +130,7 @@ class GPUStat(object):
 
         def process_repr(p):
             r = ''
-            if not show_user: #show_cmd or
+            if show_user: #not show_cmd or
                 r += "{CUser}{}{C0}".format(
                     _repr(p['username'], '--'), **colors
                 )
@@ -460,13 +460,6 @@ def new_query():
     '''
     return GPUStatCollection.new_query()
 
-
-
-
-
-
-
-
 #cli.py
 def print_gpustat(json=False, debug=False, **kwargs):
     '''
@@ -590,6 +583,7 @@ def main(*argv):
         loop_gpustat(**vars(args))
     else:
         del args.interval
+        print_gpustat(**vars(args))
         sys.stdout = open('file', 'w')
         print_gpustat(**vars(args))
 
